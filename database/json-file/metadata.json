@@ -1,0 +1,88 @@
+{
+"http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData": {
+"class":"http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData",
+"factorizedAttributesOutdegree":[ "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"],
+"factorizedAttributesIndegree":[],
+"nonfactorizedAttributesOutdegree":[],
+"nonfactorizedAttributesIndegree":[]},
+
+
+"http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#TruthData": {
+"class":"http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#TruthData",
+"factorizedAttributesOutdegree":[ "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#booleanValue"],
+"factorizedAttributesIndegree":[],
+"nonfactorizedAttributesOutdegree":[],
+"nonfactorizedAttributesIndegree":[]},
+
+"http://knoesis.wright.edu/ssw/ont/weather.owl#WindSpeedObservation": {
+"class":"http://knoesis.wright.edu/ssw/ont/weather.owl#WindSpeedObservation",
+"factorizedAttributesOutdegree":[ "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure" ],
+"factorizedAttributesIndegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"],
+"nonfactorizedAttributesOutdegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"],
+"nonfactorizedAttributesIndegree":[]},
+
+"http://knoesis.wright.edu/ssw/ont/weather.owl#RelativeHumidityObservation": {
+"class":"http://knoesis.wright.edu/ssw/ont/weather.owl#RelativeHumidityObservation",
+"factorizedAttributesOutdegree":[ "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure" ],
+"factorizedAttributesIndegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"],
+"nonfactorizedAttributesOutdegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"],
+"nonfactorizedAttributesIndegree":[]},
+
+"http://knoesis.wright.edu/ssw/ont/weather.owl#TemperatureObservation": {
+"class":"http://knoesis.wright.edu/ssw/ont/weather.owl#TemperatureObservation",
+"factorizedAttributesOutdegree":[ "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure" ],
+"factorizedAttributesIndegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"],
+"nonfactorizedAttributesOutdegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"],
+"nonfactorizedAttributesIndegree":[]},
+
+
+"http://knoesis.wright.edu/ssw/ont/weather.owl#SnowfallObservation": {
+"class":"http://knoesis.wright.edu/ssw/ont/weather.owl#SnowfallObservation",
+"factorizedAttributesOutdegree":[ "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure" ],
+"factorizedAttributesIndegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"],
+"nonfactorizedAttributesOutdegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"],
+"nonfactorizedAttributesIndegree":[]},
+
+"http://knoesis.wright.edu/ssw/ont/weather.owl#VisibilityObservation": {
+"class":"http://knoesis.wright.edu/ssw/ont/weather.owl#VisibilityObservation",
+"factorizedAttributesOutdegree":[ "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure" ],
+"factorizedAttributesIndegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"],
+"nonfactorizedAttributesOutdegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"],
+"nonfactorizedAttributesIndegree":[]},
+
+"http://knoesis.wright.edu/ssw/ont/weather.owl#RainfallObservation": {
+"class":"http://knoesis.wright.edu/ssw/ont/weather.owl#RainfallObservation",
+"factorizedAttributesOutdegree":[ "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure" ],
+"factorizedAttributesIndegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"],
+"nonfactorizedAttributesOutdegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"],
+"nonfactorizedAttributesIndegree":[]},
+
+"http://knoesis.wright.edu/ssw/ont/weather.owl#PrecipitationObservation": {
+"class":"http://knoesis.wright.edu/ssw/ont/weather.owl#PrecipitationObservation",
+"factorizedAttributesOutdegree":[ "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure" ],
+"factorizedAttributesIndegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"],
+"nonfactorizedAttributesOutdegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"],
+"nonfactorizedAttributesIndegree":[]},
+
+"http://knoesis.wright.edu/ssw/ont/weather.owl#PressureObservation": {
+"class":"http://knoesis.wright.edu/ssw/ont/weather.owl#PressureObservation",
+"factorizedAttributesOutdegree":[ "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure" ],
+"factorizedAttributesIndegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"],
+"nonfactorizedAttributesOutdegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"],
+"nonfactorizedAttributesIndegree":[]},
+
+"http://knoesis.wright.edu/ssw/ont/weather.owl#WindDirectionObservation": {
+"class":"http://knoesis.wright.edu/ssw/ont/weather.owl#WindDirectionObservation",
+"factorizedAttributesOutdegree":[ "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure" ],
+"factorizedAttributesIndegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"],
+"nonfactorizedAttributesOutdegree":["http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result", "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"],
+"nonfactorizedAttributesIndegree":[]},
+
+"http://www.w3.org/2006/time#Instant": {
+"class":"http://www.w3.org/2006/time#Instant",
+"factorizedAttributesOutdegree":[],
+"factorizedAttributesIndegree":[],
+"nonfactorizedAttributesOutdegree":["http://www.w3.org/2006/time#inXSDDateTime"],
+"nonfactorizedAttributesIndegree":[]}
+
+}
