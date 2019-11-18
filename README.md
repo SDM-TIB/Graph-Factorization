@@ -22,10 +22,10 @@ Two approached *EFSP* and *GFSP* are provided to detect frequent star patterns. 
 ## EFSP
 This approach performs an exhaustive search over the frequent subgraphs identified by a graph mining algorithm. We have implemented *EFSP*, which uses [gSpan](https://github.com/betterenvi/gSpan) as baseline. Running *EFSP* involves following steps:
 
-a. Running RDF2Graph
-gSpan requires a graph format with vertices(v) and edges(e), therefore, RDF2Graph converts RDF graphs to the required graph format. 
+### a. Running RDF2Graph
+[gSpan](https://github.com/betterenvi/gSpan) requires a graph format with vertices(v) and edges(e), therefore, RDF2Graph converts RDF graphs to the required graph format. 
 ```
-$python3 main.py $path_to_RDF $RDF_format $path_to_class_property_file $path_to_ve_graph_folder $path_to_folder_to_save_exe_time
+$python3 main.py $path_to_RDF $RDF_format $path_to_class_property_file $path_to_ve_graph_folder $path_to_folder_to_save_exe_parameters
 ```
 #### Parameters
 $path_to_RDF - It is the path to folder containing RDF data.
@@ -36,9 +36,9 @@ $path_to_class_property_file - Path to the file containg a class and the propert
 
 $path_to_ve_graph_folder - Path to a output folder to save the ve graph format of the RDF data.
 
-$path_to_folder_to_save_exe_time - Path to a folder to save the execution time and other parameters observed during execution.
+$path_to_folder_to_save_exe_parameters - Path to a folder to save the execution time and other parameters observed during execution.
 
-#### Running Example using RDF2Graph
+#### Running RDF2Graph using Example
 ```
 $cd RDF2Graph
 $python3 main.py /data/database/RDFOriginal/ n3 /data/database/classProperties/Temperatureproperties /data/database/veGraph/  /data/database/Result/
@@ -47,7 +47,33 @@ Running using shell script.
 ```
 $sh scripts/runRDF2Graph.sh /data/database/db/rdf2graph /data/database/veGraph/ /data/database/Result/
 ```
+### b. Running EFSP
+Command to run *EFSP*
+```
+$python3 main.py -s 1 -d True $path_to_veGraph_file $path_to_folder_to_save_freq_star_patterns $path_to_folder_to_save_exe_parameters $path_to_file_containing_total_class_instances $path_to_class_property_file $path_to_folder_to_store_identified_class_properties
+```
+#### Parameters
 
+$path_to_veGraph_file - Path to file containing ve graph representations.
+
+$path_to_folder_to_save_freq_star_patterns - Path to folder to save frequent star patterns
+
+$path_to_folder_to_save_exe_parameters - Path to a folder to save the execution time and other parameters observed during execution.
+
+$path_to_file_containing_total_class_instances - Path to file containing total class instances.
+
+$path_to_class_property_file - Path to the file containg a class and the properties of the class to be checked for FSP.
+
+$path_to_folder_to_store_identified_class_properties - Path to folder to store class and properties, in json format, identified by *EFSP*.
+
+#### Running *EFSP* using Example
+```
+$python3 main.py -s 1 -d True /data/database/veGraph/TemperatureObservationgraph.data /data/database/frequentStars/ /data/database/Result /data/database/instances/TemperatureObservation /data/database/classProperties/Temperatureproperties /data/database/json-file/
+```
+Running using shell script.
+```
+$sh scripts/runEFSP.sh /data/database/db/efsp /data/database/frequentStars/ /data/database/Result/ /data/database/json-file/
+```
 
 
 ## Create Maven Package
