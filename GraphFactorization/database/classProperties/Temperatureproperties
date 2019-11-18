@@ -1,0 +1,1 @@
+<http://knoesis.wright.edu/ssw/ont/weather.owl#TemperatureObservation>	["<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty>","<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure>","<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result>","<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime>"]
