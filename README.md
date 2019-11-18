@@ -19,11 +19,11 @@ $docker exec -it graphFactorization bash
 # 2.  FSP Detection
 Two approached *EFSP* and *GFSP* are provided to detect frequent star patterns. Each approach is explined below long with its usage.
 
-## EFSP
-This approach performs an exhaustive search over the frequent subgraphs identified by a graph mining algorithm. We have implemented *EFSP*, which uses [gSpan](https://github.com/betterenvi/gSpan) as baseline. Running *EFSP* involves following steps:
+## 2.1 EFSP
+*EFSP* performs an exhaustive search over the frequent subgraphs identified by a graph mining algorithm. We have implemented *EFSP*, which uses [gSpan](https://github.com/betterenvi/gSpan) as baseline. Running *EFSP* involves following steps:
 
-### a. Running RDF2Graph
-[gSpan](https://github.com/betterenvi/gSpan) requires a graph format with vertices(v) and edges(e), therefore, RDF2Graph converts RDF graphs to the required graph format. 
+### Step 1. Running RDF2Graph
+[gSpan](https://github.com/betterenvi/gSpan) requires a graph format with vertices(v) and edges(e), therefore, RDF2Graph converts RDF graphs to the required graph format. Given below is the command to run RDF2Graph.
 ```
 $python3 main.py $path_to_RDF $RDF_format $path_to_class_property_file $path_to_ve_graph_folder $path_to_folder_to_save_exe_parameters
 ```
@@ -47,7 +47,7 @@ Running using shell script.
 ```
 $sh scripts/runRDF2Graph.sh /data/database/db/rdf2graph /data/database/veGraph/ /data/database/Result/
 ```
-### b. Running EFSP
+### Step 2. Running EFSP
 Command to run *EFSP*
 ```
 $python3 main.py -s 1 -d True $path_to_veGraph_file $path_to_folder_to_save_freq_star_patterns $path_to_folder_to_save_exe_parameters $path_to_file_containing_total_class_instances $path_to_class_property_file $path_to_folder_to_store_identified_class_properties
@@ -68,6 +68,7 @@ $path_to_folder_to_store_identified_class_properties - Path to folder to store c
 
 #### Running *EFSP* using Example
 ```
+$cd EFSP
 $python3 main.py -s 1 -d True /data/database/veGraph/TemperatureObservationgraph.data /data/database/frequentStars/ /data/database/Result /data/database/instances/TemperatureObservation /data/database/classProperties/Temperatureproperties /data/database/json-file/
 ```
 Running using shell script.
@@ -75,6 +76,65 @@ Running using shell script.
 $sh scripts/runEFSP.sh /data/database/db/efsp /data/database/frequentStars/ /data/database/Result/ /data/database/json-file/
 ```
 
+## 2.1 GFSP
+*GFSP* adopts a Greedy approach to identify properties involved in frequent star patterns. Running *GFSP* involves following steps:
+
+### Step 1. Running GroupBy
+*GFSP* requires a list of star patterns in RDF graphs, and corresponding multiplicities, therefore, GroupBy extracts lists of stars by running GroupBy queries over a virtuoso endpoint containing RDF data.  Given below is the command to run GroupBy.
+```
+$python3 main.py $sparql_endpoint $path_to_class_property_file $path_to_folder_to_store_starList $path_to_folder_to_store_total_class_instances $path_to_folder_to_save_exe_parameters
+```
+
+#### Parameters
+$sparql_endpoint - SPARQL endoint URL
+
+$path_to_class_property_file - Path to the file containg a class and the properties of the class to be checked for star patterns.
+
+$path_to_folder_to_store_starList - Path to folder to store star lists.
+
+$path_to_folder_to_store_total_class_instances - Path to folder to store total class instances.
+
+$path_to_folder_to_save_exe_parameters - Path to a folder to save the execution time and other parameters observed during execution.
+
+#### Running GroupBy using Example
+```
+$cd GroupBy
+$python3 main.py http://virtuosoGraphF:8890/sparql /data/database/classProperties/Temperatureproperties /data/database/starList /data/database/instances /data/database/Result/
+```
+Running using shell script.
+```
+sh scripts/runGroupBy.sh /data/database/db/groupBy /data/database/starList/ /data/database/instances/ /data/database/Result/
+```
+### Step 2. Running GFSP
+Command to run *GFSP*
+```
+python3 main.py $path_to_file_containing_starLists $path_to_class_property_file $path_to_folder_to_save_freq_star_patterns $path_to_folder_to_save_exe_parameters $path_to_file_containing_total_class_instances $path_to_folder_to_store_identified_class_properties -s 1
+```
+#### Parameters
+
+$path_to_file_containing_starLists - Path to file containing star lists.
+
+$path_to_class_property_file - Path to the file containg a class and the properties of the class to be checked for FSP.
+
+$path_to_folder_to_save_freq_star_patterns - Path to folder to save frequent star patterns
+
+$path_to_folder_to_save_exe_parameters - Path to a folder to save the execution time and other parameters observed during execution.
+
+$path_to_file_containing_total_class_instances - Path to file containing total class instances.
+
+$path_to_folder_to_store_identified_class_properties - Path to folder to store class and properties, in json format, identified by *GFSP*.
+
+#### Running *GFSP* using Example
+```
+$cd GFSP
+$python3 main.py /data/database/starList/TemperatureObservation /data/database/classProperties/Temperatureproperties /data/database/frequentStars /data/database/Result /data/database/instances/TemperatureObservation /data/database/json-file/ -s 1
+```
+Running using shell script.
+```
+$sh scripts/runGFSP.sh /data/database/db/gfsp /data/database/frequentStars/  /data/database/Result/ /data/database/json-file/
+```
+
+# 3. Factorization
 
 ## Create Maven Package
 
@@ -86,18 +146,22 @@ $mvn package
 ## Run Factorization
 
 ```
-$java -jar target/RDFFactorization-0.0.1-SNAPSHOT.jar path_to_json_file path_to_input_RDF path_to_output_RDF
+$java -jar target/RDFFactorization-0.0.1-SNAPSHOT.jar $path_to_json_file $path_to_input_RDF $path_to_output_RDF $RDF_format
 ```
 ### Parameters
-* path_to_json_file - Path to json file containing a class and corresponding properties to perform factorization. An example of json file is provided in *database/json-file* folder.
-* path_to_input_RDF - Path to the folder conataining original RDF to be factorized. An example of original RDF data is provided in *database/input* folder.
-* path_to_output_RDF - Path to the folder to save the factorized RDF data. 
+$path_to_json_file - Path to json file containing a class and corresponding properties to perform factorization. An example of json file is provided in *database/json-file* folder.
 
-### Running An Example of SSN data
+$path_to_input_RDF - Path to the folder conataining original RDF to be factorized. An example of original RDF data is provided in *database/input* folder.
+
+$path_to_output_RDF - Path to the folder to save the factorized RDF data. 
+
+$RDF_format - Format of RDF files.
+
+### Running Factorization using Example
 
 Example json file and original RDF data are provided in the *database* folder. Use the command below to run the example.
 
 ```
-$java -jar target/RDFFactorization-0.0.1-SNAPSHOT.jar ./database/json-file/metadata.json ./database/input/  ./database//output/
-
+$cd RDFFactorization
+$java -jar target/RDFFactorization-0.0.1-SNAPSHOT.jar /data/database/json-file/TemperatureObservation /data/database/RDFOriginal/ /data/database/RDFFactorized/ NTriples
 ```
