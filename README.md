@@ -29,9 +29,13 @@ $python3 main.py $path_to_RDF $RDF_format $path_to_class_property_file $path_to_
 ```
 #### Parameters
 $path_to_RDF - It is the path to folder containing RDF data.
+
 $RDF_format - It is a strinng mentioning the input format of RDf data.
+
 $path_to_class_property_file - Path to the file containg a class and the properties of the class to be checked for FSP.
+
 $path_to_ve_graph_folder - Path to a output folder to save the ve graph format of the RDF data.
+
 $path_to_folder_to_save_exe_time - Path to a folder to save the execution time and other parameters observed during execution.
 
 #### Running Example using RDF2Graph
