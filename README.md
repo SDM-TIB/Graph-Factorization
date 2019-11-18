@@ -1,5 +1,9 @@
 # Graph-Factorization
-Graph Factorization project creates compact representations of RDF graphs by reducing the number of frequent star patterns in the RDF graphs. In factorized representations of RDF graphs number of RDF triples is reduced while preserving the knowledge encoded in the data. 
+Graph Factorization project creates compact representations of RDF graphs by reducing the number of frequent star patterns (FSP) in the RDF graphs. In factorized representations of RDF graphs the number of RDF triples is reduced while preserving the knowledge encoded in the data. Graph factorization project requires a class and a set of corresponding properties, involved in frequent star patterns, to perform factorization. *EFSP* and *GFSP* perform FSP detection by identifying classes and properties involved in frequent star patterns. Running this project requires following steps:
+
+1.  Configuration
+2.  FSP Detection
+3.  Factorization
 
 ## Create Maven Package
 
