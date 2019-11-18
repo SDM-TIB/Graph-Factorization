@@ -5,6 +5,16 @@ Graph Factorization project creates compact representations of RDF graphs by red
 2.  FSP Detection
 3.  Factorization
 
+# 1.  Configuration
+In this step a docker image of ubuntu is created, and ubuntu image along with an other docker container running virtuoso endpoint are started using docker-compose.
+```
+$cd Graph-Factorization
+$docker build -t ubuntu1804 .
+$docker-compose up -d
+
+```
+
+
 ## Create Maven Package
 
 ```
