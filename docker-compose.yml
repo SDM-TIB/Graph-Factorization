@@ -1,0 +1,25 @@
+version: '2.1'
+services:
+    virtuosoGraphF:
+     image: kemele/virtuoso:7-stable
+     container_name: virtuosoTemperature
+     environment:
+      SPARQL_UPDATE: "true"
+      Default_Graph: "http://www.ssnExample.com/TempExample/"
+     volumes:
+      - ./virtuosoTemp:/data
+     ports:
+      - "8900:8890"
+     networks:
+      - graphFact
+
+    GraphFactorization:
+     image: ubuntu1804
+     container_name: graphFactorization
+     volumes:
+      - ./GraphFactorization:/data
+     networks:
+      - graphFact
+
+networks:
+  graphFact:
