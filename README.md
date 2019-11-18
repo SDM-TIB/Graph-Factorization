@@ -19,7 +19,7 @@ $docker exec -it graphFactorization bash
 # 2.  FSP Detection
 Two approached *EFSP* and *GFSP* are provided to detect frequent star patterns. Each approach is explined below long with its usage.
 
-## 2.1 EFSP
+## 2.1 *EFSP*
 *EFSP* performs an exhaustive search over the frequent subgraphs identified by a graph mining algorithm. We have implemented *EFSP*, which uses [gSpan](https://github.com/betterenvi/gSpan) as baseline. Running *EFSP* involves following steps:
 
 ### Step 1. Running RDF2Graph
@@ -76,7 +76,7 @@ Running using shell script.
 $sh scripts/runEFSP.sh /data/database/db/efsp /data/database/frequentStars/ /data/database/Result/ /data/database/json-file/
 ```
 
-## 2.1 GFSP
+## 2.2 *GFSP*
 *GFSP* adopts a Greedy approach to identify properties involved in frequent star patterns. Running *GFSP* involves following steps:
 
 ### Step 1. Running GroupBy
@@ -140,7 +140,6 @@ $sh scripts/runGFSP.sh /data/database/db/gfsp /data/database/frequentStars/  /da
 
 ```
 $mvn package
-
 ```
 
 ## Run Factorization
