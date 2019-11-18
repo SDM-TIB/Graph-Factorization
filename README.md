@@ -19,6 +19,33 @@ $docker exec -it graphFactorization bash
 # 2.  FSP Detection
 Two approached *EFSP* and *GFSP* are provided to detect frequent star patterns. Each approach is explined below long with its usage.
 
+## EFSP
+This approach performs an exhaustive search over the frequent subgraphs identified by a graph mining algorithm. We have implemented *EFSP*, which uses [gSpan](https://github.com/betterenvi/gSpan) as baseline. Running *EFSP* involves following steps:
+
+a. Running RDF2Graph
+gSpan requires a graph format with vertices(v) and edges(e), therefore, RDF2Graph converts RDF graphs to the required graph format. 
+```
+$python3 main.py $path_to_RDF $RDF_format $path_to_class_property_file $path_to_ve_graph_folder $path_to_folder_to_save_exe_time
+```
+#### Parameters
+$path_to_RDF - It is the path to folder containing RDF data.
+$RDF_format - It is a strinng mentioning the input format of RDf data.
+$path_to_class_property_file - Path to the file containg a class and the properties of the class to be checked for FSP.
+$path_to_ve_graph_folder - Path to a output folder to save the ve graph format of the RDF data.
+$path_to_folder_to_save_exe_time - Path to a folder to save the execution time and other parameters observed during execution.
+
+#### Running Example using RDF2Graph
+```
+$cd RDF2Graph
+$python3 main.py /data/database/RDFOriginal/ n3 /data/database/classProperties/Temperatureproperties /data/database/veGraph/  /data/database/Result/
+```
+Running using shell script.
+```
+$sh scripts/runRDF2Graph.sh /data/database/db/rdf2graph /data/database/veGraph/ /data/database/Result/
+```
+
+
+
 ## Create Maven Package
 
 ```
