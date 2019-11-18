@@ -1,5 +1,7 @@
 # Graph-Factorization
-Graph Factorization project creates compact representations of RDF graphs by reducing the number of frequent star patterns (FSP) in the RDF graphs. In factorized representations of RDF graphs the number of RDF triples is reduced while preserving the knowledge encoded in the data. Graph factorization project requires a class and a set of corresponding properties, involved in frequent star patterns, to perform factorization. *EFSP* and *GFSP* perform FSP detection by identifying classes and properties involved in frequent star patterns. Running this project requires following steps:
+Graph Factorization project creates compact representations of RDF graphs by reducing the number of frequent star patterns (FSP) in the RDF graphs. In factorized representations of RDF graphs the number of RDF triples is reduced while preserving the knowledge encoded in the data. Graph factorization project requires a class and a set of corresponding properties, involved in frequent star patterns, to perform factorization. *EFSP* and *GFSP* perform FSP detection by identifying classes and properties involved in frequent star patterns. The source code of factorization, EFSP, and GFSP are provided along with an example of sensor data containing temperature observations from [LinkedSensorData](http://wiki.knoesis.org/index.php/LinkedSensorData). 
+
+Running this project requires following steps:
 
 1.  Configuration
 2.  FSP Detection
@@ -11,9 +13,10 @@ In this step a docker image of ubuntu is created, and ubuntu image along with an
 $cd Graph-Factorization
 $docker build -t ubuntu1804 .
 $docker-compose up -d
-
 ```
 
+# 2.  FSP Detection
+Two approached *EFSP* and *GFSP* are provided to detect frequent star patterns. Each approach is explined below long with its usage.
 
 ## Create Maven Package
 
