@@ -13,6 +13,7 @@ In this step a docker image of ubuntu is created, and ubuntu image along with an
 $cd Graph-Factorization
 $docker build -t ubuntu1804 .
 $docker-compose up -d
+$docker exec -it graphFactorization bash
 ```
 
 # 2.  FSP Detection
